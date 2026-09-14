@@ -446,9 +446,9 @@ function App() {
               <article>
                 <EvidenceTag kind="FACT" />
                 <p>
-                  Avarda’s role brief describes internally developed and licensed core platforms supporting lending, cards, deposits and payments.
+                  Avarda’s public API separates credit approval from background processing and exposes when an order is ready for order management.
                 </p>
-                <SourceLink href={sources.role}>role brief</SourceLink>
+                <SourceLink href={sources.flow}>API flow</SourceLink>
               </article>
               <article>
                 <EvidenceTag kind="FACT" />
@@ -1101,7 +1101,6 @@ function App() {
           </div>
           <div className="source-list">
             {[
-              ['Avarda', 'Core Banking Product role brief', sources.role],
               ['Avarda', 'Direct Invoice API', sources.directInvoice],
               ['Avarda', 'Authorization flow details', sources.flow],
               ['Avarda', 'Return and price-adjustment API', sources.return],

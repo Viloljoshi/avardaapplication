@@ -4,8 +4,6 @@ This is the internal claim-control sheet for the interview artifact. It is delib
 
 | Claim | Source | Exact support | Confidence | Safe wording used |
 |---|---|---|---|---|
-| Avarda runs internally developed and licensed core platforms across lending, cards, deposits and payments | Avarda Core Banking Product role brief | The role page states this directly and names product configuration, account lifecycle, payments, migrations and vendor acceptance | High | Used as `FACT`, linked to the role page |
-| Avarda follows an “orchestrate, not rip-and-replace” strategy | Avarda Core Banking Product role brief | The phrase and its keep/migrate/orchestrate responsibilities appear directly in the role page | High | Used as strategic context, not as a candidate-authored recommendation |
 | Avarda Bank is a Corniche customer | Megasol public website | Avarda Bank appears in Megasol’s customer list | High | Used as `FACT`, linked to Megasol |
 | Corniche supports accounts, payments, general-ledger/reporting concepts and stable APIs | Megasol public website | Public capability and endpoint examples include accounts, payments, daily ledger balances and transaction audit | High | Described at capability level; no claim about Avarda’s exact configuration |
 | Corniche supports internal/external payments and SEPA / ISO 20022 through integrations or access partners | Megasol payments and integrations pages | The pages state this directly | High | Used as `FACT`; exact Avarda rail topology remains `TO VALIDATE` |

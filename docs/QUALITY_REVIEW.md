@@ -5,7 +5,7 @@ This review evaluates the artifact against the governing build specification. It
 ## Pass 1 — content and evidence
 
 - Verified all external links return successfully.
-- Grounded Avarda platform/role statements in Avarda’s role brief and public API documentation.
+- Grounded Avarda-specific statements in Avarda’s public API documentation.
 - Grounded Corniche customer/capability statements in Megasol’s public material.
 - Grounded only the general correspondent-banking mechanism in the ECB glossary.
 - Removed named-bank claims and candidate-specific transaction-chain claims from the visible artifact.

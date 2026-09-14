@@ -26,7 +26,6 @@ export interface Scenario {
 }
 
 export const sources = {
-  role: 'https://career.avardagroup.com/jobs/8154439-senior-product-manager-core-banking-platform-m-w-d',
   directInvoice:
     'https://docs.avarda.com/authorization-api/api-reference/create-credit-authorization/direct-invoice/',
   partPayment:

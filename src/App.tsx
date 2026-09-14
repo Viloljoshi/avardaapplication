@@ -459,7 +459,7 @@ function App() {
               <article>
                 <EvidenceTag kind="FACT" />
                 <p>
-                  Megasol publicly lists Avarda Bank among Corniche customers; Corniche documents account, payment, ledger and integration capabilities.
+                  Avarda Bank is a public Corniche customer. Corniche is Megasol’s core banking platform.
                 </p>
                 <SourceLink href={sources.megasol}>Megasol</SourceLink>
               </article>
@@ -487,6 +487,13 @@ function App() {
             title="Start with ownership, not architecture boxes."
             intro="The UI and configuration model differ between cores. The portable PM questions do not: who owns state, who calculates, who posts, who executes, who can reverse, and who proves the result?"
           />
+
+          <p className="chapter-lead">
+            When I look at a core-banking estate I do not start with the architecture diagram, because the boxes are the part that differs most between banks and matters least to the product decision. I start with ownership. If I can say, for any single balance, exactly which system is allowed to change it, calculate on it, post it, execute against it, reverse it and reconcile it, then I understand the product, whatever the vendor happens to call its modules.
+          </p>
+          <p className="chapter-lead">
+            So the map below is the first thing I would build at Avarda, and everything after this chapter is built on it.
+          </p>
 
           <div className="ownership-map">
             <div className="ownership-spine">
@@ -583,6 +590,11 @@ function App() {
             title="One account. Seven scenarios. One source of truth."
             intro="A payment journey is safe only when customer state, product state, accounting state and external processing state can disagree temporarily, but never silently."
           />
+
+          <p className="chapter-lead">
+            The fastest way to show that I understand a core is not to describe it, but to run one account through the situations that actually break banks. Below is a single account moving through seven scenarios, from a clean full payment to a live migration. In each one, watch what has to stay true at the same time: what the customer sees, what the product records, what the money does, what the outside world reports, and the control that proves they still agree.
+          </p>
+
           <FinancialStateExplorer />
 
           <div className="invariants-section">
@@ -618,6 +630,13 @@ function App() {
             title="Distributed-systems correctness becomes financial correctness."
             intro="Transaction, payment, posting, settlement and reconciliation are connected, but they are not synonyms. Product requirements must preserve each state and the contracts between them."
           />
+
+          <p className="chapter-lead">
+            This is the chapter that separates having read about banking from having shipped it. A payment is a distributed-systems problem wearing a suit: it times out, it retries, it arrives twice, it settles late, it can fail after it already looked final. In an ordinary product those are reliability bugs. In a bank, each one is a potential wrong number on someone’s balance.
+          </p>
+          <p className="chapter-lead">
+            So the mechanics below are not trivia. They are the exact point where distributed-systems correctness becomes financial correctness, and where a product manager either writes the requirement that prevents a double posting, or explains one to an auditor later.
+          </p>
 
           <div className="mechanics-flow">
             {[
@@ -796,6 +815,13 @@ function App() {
             intro="The strategy is neither “keep legacy forever” nor “replace the core.” It is a repeatable decision about the best owner, the strength of the contract, and the ability to prove equivalence."
           />
 
+          <p className="chapter-lead">
+            This is the heart of the role, and the place where most modernisation programmes quietly go wrong. They begin from the wrong question, “which system do we replace?”, instead of the one that actually protects customers and the balance sheet: “who should own this capability, and can we prove that nothing breaks when it moves?”
+          </p>
+          <p className="chapter-lead">
+            Avarda’s own instinct, to orchestrate around trusted cores rather than rip and replace, is the right one. But an instinct only survives contact with a roadmap if it becomes a repeatable, falsifiable decision rather than a slogan. So I turn it into one. For every capability I run a short chain of questions and land on exactly one of five moves, <strong>keep, wrap, enhance, migrate or retire</strong>. Change the evidence in the engine below and the recommendation changes with it, because a platform strategy you cannot falsify is just an opinion held confidently.
+          </p>
+
           <div className="decision-intro">
             <div>
               <p className="eyebrow">INTERACTIVE DECISION ENGINE</p>
@@ -804,6 +830,10 @@ function App() {
             <p>Change the evidence below. The working outcome changes with it, because platform strategy should be falsifiable, not ideological.</p>
           </div>
           <DecisionEngine />
+
+          <p className="chapter-lead">
+            When that decision comes back as “migrate”, the real work begins, and this is where I would spend most of my attention, because moving a live financial account is three different migrations wearing one name. Confusing them is how a programme reports success on Friday and a customer sees the wrong balance on Monday.
+          </p>
 
           <div className="migration-section">
             <div className="migration-heading">
@@ -938,6 +968,13 @@ function App() {
             intro="This is not a biography. It is a precise map from work I have done to the decisions this role requires, and the product principles that carry across platforms."
           />
 
+          <p className="chapter-lead">
+            I want to be careful here, because this is exactly where a candidate is tempted to overclaim, and overclaiming is what led to this artifact in the first place. So I will be precise. I have not run a Corniche implementation. What I have done, repeatedly, is the work underneath it: modernising around systems of record, building orchestration and evaluation layers, integrating regulated financial workflows, and keeping automated decisions auditable.
+          </p>
+          <p className="chapter-lead">
+            The matrix below maps that onto what this role needs, one row at a time, and names the transferable principle rather than pretending the systems are identical.
+          </p>
+
           <div className="experience-proof-strip" aria-label="Candidate experience context">
             <div>
               <span>PRIMARY CONTEXT</span>
@@ -1019,6 +1056,10 @@ function App() {
             title="Thirty days to a decision-quality roadmap."
             intro="The first month should reduce uncertainty in a deliberate order: ownership → journeys → exceptions → capability decisions → an accepted roadmap."
           />
+
+          <p className="chapter-lead">
+            None of this matters if I cannot turn it into decisions once I am in the building. So here is what I would actually do in the first thirty days, framed as the questions I would be able to answer by each point rather than a list of meetings, because a plan is only as good as the uncertainty it removes.
+          </p>
 
           <div className="days-grid">
             {[

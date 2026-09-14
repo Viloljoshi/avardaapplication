@@ -1,24 +1,27 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import App from './App'
+import { Home } from './views/Home'
+import { DeepDive } from './views/DeepDive'
 
 describe('Avarda core-banking thesis', () => {
-  it('states the experience boundary clearly near the top', () => {
-    render(<App />)
+  it('states the experience boundary honestly on the home page', () => {
+    render(<Home />)
 
-    expect(screen.getByText(/I have not personally administered or owned the end-to-end configuration/i)).toBeInTheDocument()
-    expect(screen.getByText('Not claimed')).toBeInTheDocument()
+    expect(
+      screen.getByText(/interacted with Corniche in a partner-bank context/i),
+    ).toBeInTheDocument()
+    expect(screen.getByText('Not owned')).toBeInTheDocument()
   })
 
-  it('renders the complete eight-chapter journey', () => {
-    const { container } = render(<App />)
+  it('renders the complete eight-chapter deep dive', () => {
+    const { container } = render(<DeepDive />)
     const chapterIds = ['context', 'model', 'explorer', 'mechanics', 'modernise', 'proof', 'operate', 'close']
 
     chapterIds.forEach((id) => expect(container.querySelector(`#${id}`)).toBeInTheDocument())
   })
 
   it('switches the financial-state explorer scenario', () => {
-    render(<App />)
+    render(<DeepDive />)
 
     fireEvent.click(screen.getByRole('button', { name: 'Refund' }))
     expect(screen.getByRole('heading', { name: 'Refund after a return' })).toBeInTheDocument()
@@ -26,7 +29,7 @@ describe('Avarda core-banking thesis', () => {
   })
 
   it('recomputes the modernisation outcome as evidence changes', () => {
-    render(<App />)
+    render(<DeepDive />)
 
     expect(screen.getByText('KEEP + WRAP')).toBeInTheDocument()
     const retirementGate = screen.getByRole('group', {

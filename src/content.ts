@@ -220,3 +220,133 @@ export const chapters = [
   { id: 'operate', number: '07', label: 'Operating model' },
   { id: 'close', number: '08', label: 'Continue the conversation' },
 ]
+
+// ---------------------------------------------------------------------------
+// Front-door (N26-style) content: one argument, three reading depths.
+// ---------------------------------------------------------------------------
+
+export type Route = 'home' | 'discussion' | 'brief' | 'deep-dive'
+
+export const navModes: Array<{ route: Route; label: string }> = [
+  { route: 'discussion', label: 'Present' },
+  { route: 'brief', label: 'Brief' },
+  { route: 'deep-dive', label: 'Deep dive' },
+]
+
+// The capability decision framework shown on the home hero card.
+export const decisionFramework = {
+  start: 'What should happen to this capability?',
+  moves: ['Keep', 'Wrap', 'Enhance', 'Migrate', 'Retire'],
+  gates: [
+    { label: 'Ownership', question: 'Who owns financial truth?' },
+    { label: 'Contract', question: 'Is the interface stable?' },
+    { label: 'Equivalence', question: 'Can we prove it holds?' },
+  ],
+  note: 'The core is one component. The product is the state model, the controls, the acceptance and the migration proof around it.',
+}
+
+// Evidence strip on the home page.
+export const heroFacts: Array<{ kind: EvidenceKind; value: string; note: string; href?: string }> = [
+  { kind: 'FACT', value: 'Avarda Bank', note: 'listed among Corniche customers by Megasol', href: sources.megasol },
+  { kind: 'FACT', value: 'AccountClassCode', note: 'exposed by Avarda’s public Direct Invoice API', href: sources.directInvoice },
+  { kind: 'FACT', value: 'InBackOffice', note: 'async readiness in Avarda’s Authorization flow', href: sources.flow },
+  { kind: 'INFERENCE', value: 'Ownership first', note: 'financial-state ownership is the constraint, not system count' },
+]
+
+// Six decisions for the five-minute "Present" reading mode.
+export const discussionDecisions: Array<{
+  number: string
+  title: string
+  point: string
+  detail: string
+  anchor: string
+}> = [
+  {
+    number: '01',
+    title: 'The boundary, stated plainly',
+    point: 'I interacted with Corniche in a partner-bank context and understood its configuration. I have not owned its end-to-end administration.',
+    detail: 'A real but bounded exposure, corrected explicitly so there is no ambiguity about scope.',
+    anchor: 'scope',
+  },
+  {
+    number: '02',
+    title: 'The thesis',
+    point: 'Core-banking modernisation is a financial-state ownership problem before it is a system-replacement problem.',
+    detail: 'Own the state, expose the contract, prove equivalence. A product promise becomes financial truth.',
+    anchor: 'context',
+  },
+  {
+    number: '03',
+    title: 'Model the domain',
+    point: 'Start with ownership, not architecture boxes: who owns state, calculates, posts, executes, reverses and reconciles.',
+    detail: 'The UI differs between cores; these portable PM questions do not.',
+    anchor: 'model',
+  },
+  {
+    number: '04',
+    title: 'Financial state',
+    point: 'One account, seven scenarios, one source of truth. Customer, product, ledger and rail may disagree temporarily, never silently.',
+    detail: 'Full payment, partial, refund, reversal, returned payment, delinquency and live migration.',
+    anchor: 'explorer',
+  },
+  {
+    number: '05',
+    title: 'Modernise safely',
+    point: 'Keep · Wrap · Enhance · Migrate · Retire is a repeatable, falsifiable decision. Move financial ownership only when equivalence is proven.',
+    detail: 'Equal copied values are necessary; equivalent behavior is the release criterion.',
+    anchor: 'modernise',
+  },
+  {
+    number: '06',
+    title: 'What transfers, and how I start',
+    point: 'Regulated-banking modernisation, cross-system financial workflows and governed automation transfer directly. Thirty days to a decision-quality roadmap.',
+    detail: 'Ownership map → journey mapping → break inventory → capability decisions → prioritised roadmap.',
+    anchor: 'proof',
+  },
+]
+
+// Two-page executive brief content.
+export const briefSections: Array<{ heading: string; body: string[] }> = [
+  {
+    heading: 'Scope, stated first',
+    body: [
+      'I interacted with Corniche in a partner-bank context and worked to understand its configuration. I have not owned or run the end-to-end administration of a Corniche implementation.',
+      'This brief shows the domain understanding behind that exposure and the product disciplines that transfer to Avarda.',
+    ],
+  },
+  {
+    heading: 'The thesis',
+    body: [
+      'Core-banking modernisation is a financial-state ownership problem before it is a system-replacement problem.',
+      'Own the state, expose a stable contract, and prove equivalence before moving anything that holds financial truth.',
+    ],
+  },
+  {
+    heading: 'How I model the domain',
+    body: [
+      'Six portable questions decide any capability: who owns state, who calculates, who posts, who executes, who can reverse, and who reconciles.',
+      'Every product journey is traced from business promise to configuration, account state, financial event, ledger and reconciliation.',
+    ],
+  },
+  {
+    heading: 'The invariants I protect',
+    body: [
+      'Ledger integrity (Σ debit = Σ credit), idempotency (one external event → one financial event), traceability, state consistency, reconciliation and recoverability.',
+      'These become acceptance criteria for requirements, releases, migrations and incident recovery.',
+    ],
+  },
+  {
+    heading: 'How I modernise',
+    body: [
+      'Keep, Wrap, Enhance, Migrate or Retire is a repeatable decision driven by ownership, contract stability and provable equivalence.',
+      'Capability, account and financial-state migration are separated; behavioral equivalence at the cut-over boundary is the release criterion.',
+    ],
+  },
+  {
+    heading: 'What transfers, and how I start',
+    body: [
+      'Regulated-banking modernisation, cross-system financial workflows, transaction/payment dependencies and governed automation transfer directly.',
+      'First thirty days: an ownership map, journey mapping, a break inventory, a Keep/Wrap/Enhance/Migrate/Retire view and a prioritised, evidence-led roadmap.',
+    ],
+  },
+]

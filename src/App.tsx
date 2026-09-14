@@ -368,7 +368,7 @@ function App() {
         <section className="hero chapter" id="context">
           <div className="hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">AN OUTSIDE-IN PRODUCT OPERATING THESIS · VILOL JOSHI</p>
+              <p className="eyebrow">VILOL JOSHI · AFTER OUR AVARDA INTERVIEW</p>
               <h1>
                 Core Banking,
                 <br />
@@ -377,8 +377,11 @@ function App() {
               <p className="hero-subhead">
                 How I think about product configuration, financial state, Corniche, platform orchestration and safe modernisation at Avarda.
               </p>
+              <p className="hero-purpose">
+                <strong>Why this exists:</strong> after our conversation I wanted to correct one point I overstated about my hands-on Corniche experience, and then show, rather than just claim, how I would approach this role. Everything below is that, in Avarda’s own terms.
+              </p>
               <a className="primary-link" href="#explorer">
-                Explore the financial state model <span aria-hidden="true">↓</span>
+                See how I would work through it <span aria-hidden="true">↓</span>
               </a>
             </div>
             <div className="hero-thesis">

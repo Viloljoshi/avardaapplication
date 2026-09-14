@@ -350,6 +350,20 @@ main {
   line-height: 1.6;
 }
 
+.hero-purpose {
+  max-width: 720px;
+  margin-block-start: 26px;
+  padding-inline-start: 20px;
+  border-inline-start: 3px solid var(--accent-deep);
+  color: var(--ink);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.6;
+}
+
+.hero-purpose strong {
+  font-weight: 700;
+}
+
 .primary-link {
   display: inline-flex;
   align-items: center;

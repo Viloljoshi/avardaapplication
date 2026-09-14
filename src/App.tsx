@@ -154,9 +154,9 @@ function FinancialStateExplorer() {
         <p>{scenario.kicker}</p>
       </div>
 
-      <div className="state-rail" aria-label={`System path for ${scenario.title}`}>
+      <div className="state-rail" aria-label={`System path for ${scenario.title}`} key={selectedId}>
         {explorerSteps.map((step, index) => (
-          <div className="rail-segment" key={step.label}>
+          <div className="rail-segment" key={step.label} style={{ '--i': index } as React.CSSProperties}>
             <div className={scenario.changedSteps.includes(index) ? 'rail-node is-changed' : 'rail-node'}>
               <span className="rail-dot" />
               <span className="rail-label">{step.label}</span>
@@ -167,7 +167,7 @@ function FinancialStateExplorer() {
         ))}
       </div>
 
-      <div className="state-details">
+      <div className="state-details" key={selectedId}>
         {[
           ['Customer', scenario.customer],
           ['Product state', scenario.product],
@@ -175,7 +175,7 @@ function FinancialStateExplorer() {
           ['External state', scenario.external],
           ['Control', scenario.control],
         ].map(([label, text], index) => (
-          <article key={label}>
+          <article key={label} style={{ '--i': index } as React.CSSProperties}>
             <span className="state-index">0{index + 1}</span>
             <h5>{label}</h5>
             <p>{text}</p>
@@ -183,7 +183,7 @@ function FinancialStateExplorer() {
         ))}
       </div>
 
-      <div className="explorer-lower">
+      <div className="explorer-lower" key={selectedId}>
         <div className="journal-card">
           <div className="journal-header">
             <span>Illustrative accounting lens</span>
@@ -308,7 +308,7 @@ function DecisionEngine() {
   )
 }
 
-function App() {
+function FullCase() {
   const [activeChapter, setActiveChapter] = useState('context')
 
   useEffect(() => {
@@ -341,7 +341,7 @@ function App() {
           <span>CORE BANKING / WORKING THESIS</span>
         </a>
         <div className="header-meta">
-          <span>Outside-in · September 2026</span>
+          <a href="#/brief">5-min brief</a>
           <a href="#sources">Evidence</a>
         </div>
         <div className="reading-progress" style={{ '--progress': `${progress}%` } as React.CSSProperties} />
@@ -380,9 +380,14 @@ function App() {
               <p className="hero-purpose">
                 <strong>Why this exists:</strong> after our conversation I wanted to correct one point I overstated about my hands-on Corniche experience, and then show, rather than just claim, how I would approach this role. Everything below is that, in Avarda’s own terms.
               </p>
-              <a className="primary-link" href="#explorer">
-                See how I would work through it <span aria-hidden="true">↓</span>
-              </a>
+              <div className="hero-actions">
+                <a className="primary-link" href="#explorer">
+                  See how I would work through it <span aria-hidden="true">↓</span>
+                </a>
+                <a className="secondary-link" href="#/brief">
+                  Short on time? Read the 5-minute brief <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
             <div className="hero-thesis">
               <span className="thesis-label">THE ONE THESIS</span>
@@ -1136,7 +1141,7 @@ function App() {
           </div>
           <div className="closing-cta">
             <p>I would genuinely value the opportunity to continue the discussion and test this thinking against Avarda’s actual architecture, constraints and roadmap.</p>
-            <a href="mailto:?subject=Avarda%20core%20banking%20discussion">Continue the conversation <span aria-hidden="true">→</span></a>
+            <a href="mailto:joshivilol1011@gmail.com?subject=Avarda%20core%20banking%20discussion">Continue the conversation <span aria-hidden="true">→</span></a>
           </div>
         </section>
 
@@ -1172,6 +1177,129 @@ function App() {
       </main>
     </div>
   )
+}
+
+const briefSections: Array<{ n: string; h: string; body: string }> = [
+  {
+    n: '01',
+    h: 'Why this exists',
+    body: 'After my Avarda interview I want to correct one point I overstated about my hands-on Corniche experience, and then show, rather than just claim, how I would approach the role.',
+  },
+  {
+    n: '02',
+    h: 'The one thesis',
+    body: 'Core-banking modernisation is a financial-state ownership problem before it is a system-replacement problem. Own the state, expose a stable contract, and prove equivalence before moving anything that holds financial truth.',
+  },
+  {
+    n: '03',
+    h: 'The scope, precisely',
+    body: 'My experience is across banking platforms, modernisation, financial workflows and integrations around authoritative systems. I have not personally administered an end-to-end Corniche implementation, and I do not want my wording to imply that.',
+  },
+  {
+    n: '04',
+    h: 'How I model a core',
+    body: 'Start with ownership, not architecture. For any balance: who owns state, who calculates, who posts, who executes, who can reverse, who reconciles. The vendor’s module names differ between banks; those questions do not.',
+  },
+  {
+    n: '05',
+    h: 'Financial state, the signature model',
+    body: 'One account through seven scenarios: full and partial payment, refund, reversal, returned payment, delinquency and live migration. Customer, product, ledger and external state may disagree temporarily, but never silently.',
+  },
+  {
+    n: '06',
+    h: 'Where correctness becomes financial',
+    body: 'Idempotency, so one external event maps to one financial event; effective date versus processing date; and explicit failure ownership. In banking, distributed-systems correctness is financial correctness.',
+  },
+  {
+    n: '07',
+    h: 'How I modernise',
+    body: 'Keep, Wrap, Enhance, Migrate or Retire, as a repeatable and falsifiable decision. Capability, account and financial-state migration are three different problems; move financial state only when equivalence is proven, not when values are copied.',
+  },
+  {
+    n: '08',
+    h: 'What transfers',
+    body: 'Modernising around trusted cores, building orchestration and evaluation layers, integrating regulated workflows, and governing automation with auditability. The gap is Avarda-specific implementation knowledge, not the underlying mental model.',
+  },
+  {
+    n: '09',
+    h: 'The first 30 days',
+    body: 'An ownership map, journey mapping, a break inventory, a Keep / Wrap / Enhance / Migrate / Retire capability view, and a prioritised, evidence-led roadmap with measurable acceptance.',
+  },
+  {
+    n: '10',
+    h: 'The ask',
+    body: 'The gap is platform-specific, not fundamental. I would value continuing the discussion and testing this thinking against Avarda’s actual architecture, constraints and roadmap.',
+  },
+]
+
+function Brief() {
+  return (
+    <div className="brief-shell">
+      <a className="skip-link" href="#brief-main">Skip to the brief</a>
+      <header className="brief-topbar">
+        <a className="wordmark" href="#/" aria-label="Back to the full case">
+          <span>VJ</span>
+          <span>CORE BANKING / WORKING THESIS</span>
+        </a>
+        <div className="brief-topbar-actions">
+          <a href="#/">← Full case</a>
+          <button type="button" className="brief-print" onClick={() => window.print()}>
+            Print / save PDF
+          </button>
+        </div>
+      </header>
+      <main className="brief-main" id="brief-main">
+        <article className="brief-sheet">
+          <div className="brief-head">
+            <p className="eyebrow">VILOL JOSHI · 5-MINUTE BRIEF</p>
+            <h1>Core Banking, without the big-bang rewrite</h1>
+            <p className="brief-sub">
+              The whole argument at the altitude of a first conversation. The full case expands the evidence behind every point.
+            </p>
+          </div>
+          <div className="brief-list">
+            {briefSections.map((section) => (
+              <section className="brief-item" key={section.n}>
+                <span className="brief-n">{section.n}</span>
+                <div>
+                  <h2>{section.h}</h2>
+                  <p>{section.body}</p>
+                </div>
+              </section>
+            ))}
+          </div>
+          <div className="brief-foot">
+            <a className="primary-link" href="#/">
+              Read the full case <span aria-hidden="true">→</span>
+            </a>
+            <a className="brief-mail" href="mailto:joshivilol1011@gmail.com?subject=Avarda%20core%20banking%20discussion">
+              Continue the conversation <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </main>
+    </div>
+  )
+}
+
+function parseRoute(): 'brief' | 'full' {
+  return window.location.hash.replace(/^#\/?/, '').startsWith('brief') ? 'brief' : 'full'
+}
+
+function App() {
+  const [route, setRoute] = useState<'brief' | 'full'>(() => parseRoute())
+
+  useEffect(() => {
+    const onHashChange = () => setRoute(parseRoute())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  useEffect(() => {
+    if (route === 'brief') window.scrollTo({ top: 0 })
+  }, [route])
+
+  return route === 'brief' ? <Brief /> : <FullCase />
 }
 
 export default App

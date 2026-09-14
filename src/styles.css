@@ -2106,7 +2106,7 @@ main {
 
 .experience-boundary li::before,
 .ai-columns li::before {
-  content: '—';
+  content: '–';
   color: #849397;
 }
 

@@ -196,8 +196,8 @@ function FinancialStateExplorer() {
                 <strong>{entry.account}</strong>
                 <span>{entry.note}</span>
               </div>
-              <span>{entry.debit ?? '—'}</span>
-              <span>{entry.credit ?? '—'}</span>
+              <span>{entry.debit ?? '–'}</span>
+              <span>{entry.credit ?? '–'}</span>
             </div>
           ))}
           <p className="journal-caveat">{scenario.caveat}</p>
@@ -251,7 +251,7 @@ function DecisionEngine() {
     if (answers.destinationReady === 'yes' && answers.equivalence === 'yes') {
       return {
         label: 'MIGRATE',
-        description: 'Sequence a bounded migration with behavioral, financial and reconciliation equivalence—not data-copy parity alone.',
+        description: 'Sequence a bounded migration with behavioral, financial and reconciliation equivalence, not data-copy parity alone.',
       }
     }
     return {
@@ -467,7 +467,7 @@ function App() {
               <article className="evidence-inference">
                 <EvidenceTag kind="INFERENCE" />
                 <p>
-                  The PM problem is to make ownership explicit: what Avarda services own, what the core owns, what a rail owns—and where financial truth is authoritative.
+                  The PM problem is to make ownership explicit: what Avarda services own, what the core owns, what a rail owns, and where financial truth is authoritative.
                 </p>
               </article>
             </div>
@@ -526,7 +526,7 @@ function App() {
               state="Account class, partner/product settings, captured order lines, due date, balance components and lifecycle."
               event="Authorization, capture, invoice creation, repayment, return/credit, transfer-to-loan where eligible."
               breakage="Partial delivery, duplicate capture, late return, unmatched repayment, stale status, or disagreement between customer and ledger state."
-              decision="Define ownership and acceptance for every branch—including the financially ugly ones, not only the happy checkout."
+              decision="Define ownership and acceptance for every branch, including the financially ugly ones, not only the happy checkout."
             />
           </div>
 
@@ -575,7 +575,7 @@ function App() {
             number="03"
             eyebrow="FINANCIAL STATE"
             title="One account. Seven scenarios. One source of truth."
-            intro="A payment journey is safe only when customer state, product state, accounting state and external processing state can disagree temporarily—but never silently."
+            intro="A payment journey is safe only when customer state, product state, accounting state and external processing state can disagree temporarily, but never silently."
           />
           <FinancialStateExplorer />
 
@@ -610,7 +610,7 @@ function App() {
             number="04"
             eyebrow="MECHANICS & CONTROLS"
             title="Distributed-systems correctness becomes financial correctness."
-            intro="Transaction, payment, posting, settlement and reconciliation are connected—but they are not synonyms. Product requirements must preserve each state and the contracts between them."
+            intro="Transaction, payment, posting, settlement and reconciliation are connected, but they are not synonyms. Product requirements must preserve each state and the contracts between them."
           />
 
           <div className="mechanics-flow">
@@ -637,7 +637,7 @@ function App() {
           <div className="inline-evidence mechanics-evidence">
             <EvidenceTag kind="FACT" />
             <p>
-              Megasol documents internal/external payments, incoming third-party interfaces, automated posting, and SEPA/ISO 20022 access-partner integrations. This supports the flow’s possibility—not Avarda’s exact deployment.
+              Megasol documents internal/external payments, incoming third-party interfaces, automated posting, and SEPA/ISO 20022 access-partner integrations. This supports the flow’s possibility, not Avarda’s exact deployment.
             </p>
             <SourceLink href={sources.cornichePayments}>Megasol payments</SourceLink>
           </div>
@@ -786,7 +786,7 @@ function App() {
           <ChapterHeader
             number="05"
             eyebrow="MODERNISE & MIGRATE"
-            title="Move capability only when its destination—and its truth—are ready."
+            title="Move capability only when its destination, and its truth, are ready."
             intro="The strategy is neither “keep legacy forever” nor “replace the core.” It is a repeatable decision about the best owner, the strength of the contract, and the ability to prove equivalence."
           />
 
@@ -795,14 +795,14 @@ function App() {
               <p className="eyebrow">INTERACTIVE DECISION ENGINE</p>
               <h3>Keep · Wrap · Enhance · Migrate · Retire</h3>
             </div>
-            <p>Change the evidence below. The working outcome changes with it—because platform strategy should be falsifiable, not ideological.</p>
+            <p>Change the evidence below. The working outcome changes with it, because platform strategy should be falsifiable, not ideological.</p>
           </div>
           <DecisionEngine />
 
           <div className="migration-section">
             <div className="migration-heading">
               <p className="eyebrow">THREE MIGRATIONS, NOT ONE</p>
-              <h3>Moving a capability is not the same as moving an account—or its financial truth.</h3>
+              <h3>Moving a capability is not the same as moving an account, or its financial truth.</h3>
             </div>
             <div className="migration-types">
               <article>
@@ -882,7 +882,7 @@ function App() {
               <div className="consolidation-case">
                 <div>
                   <p className="eyebrow">SYSTEM CONSOLIDATION</p>
-                  <h3>Count eliminated ambiguity—not only eliminated platforms.</h3>
+                  <h3>Count eliminated ambiguity, not only eliminated platforms.</h3>
                   <p>A consolidation creates value when it removes duplicate ownership, hand-offs and operational breaks without creating disproportionate migration risk.</p>
                 </div>
                 <div className="consolidation-signals">
@@ -929,7 +929,7 @@ function App() {
             number="06"
             eyebrow="TRANSFERABLE PROOF"
             title="The systems differ. The product disciplines transfer."
-            intro="This is not a biography. It is a precise map from work I have done to the decisions this role requires—and the product principles that carry across platforms."
+            intro="This is not a biography. It is a precise map from work I have done to the decisions this role requires, and the product principles that carry across platforms."
           />
 
           <div className="experience-proof-strip" aria-label="Candidate experience context">
@@ -1018,7 +1018,7 @@ function App() {
             {[
               ['05', 'I can answer', 'Which system owns which financial truth?', 'Signed ownership map and glossary'],
               ['10', 'I can explain', 'How the top product journeys become account and financial events.', 'Scenario maps with owners and contracts'],
-              ['15', 'I know', 'Where financial and operational exceptions accumulate—and why.', 'Break inventory by value, age, cause and recovery'],
+              ['15', 'I know', 'Where financial and operational exceptions accumulate, and why.', 'Break inventory by value, age, cause and recovery'],
               ['20', 'We have', 'A Keep / Wrap / Enhance / Migrate / Retire capability view.', 'Evidence-led decision register'],
               ['30', 'We have', 'A prioritised roadmap with customer value, operational value and financial risk.', 'Scenario acceptance + measurable outcomes'],
             ].map(([day, prefix, statement, output]) => (
@@ -1085,7 +1085,7 @@ function App() {
             <p>
               What I do bring is experience modernising regulated banking systems around trusted cores, understanding cross-system financial workflows, turning complex operational rules into product logic, and building controlled automation at scale.
             </p>
-            <p><strong>I built this to make that boundary—and the transferable depth—clear.</strong></p>
+            <p><strong>I built this to make that boundary, and the transferable depth, clear.</strong></p>
           </div>
           <div className="closing-cta">
             <p>I would value the opportunity to continue the discussion and test this thinking against Avarda’s actual architecture, constraints and roadmap.</p>
